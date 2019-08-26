@@ -1,5 +1,11 @@
+import GuitarSpec from "./GuitarSpec";
+
 export default class Guitar {
-  constructor(private serialNumber: string, private price: number) {}
+  constructor(
+    private serialNumber: string,
+    private price: number,
+    private spec: GuitarSpec
+  ) {}
 
   getSerialNumber(): string {
     return this.serialNumber;
@@ -13,5 +19,7 @@ export default class Guitar {
     this.price = price;
   }
 
-  getSpec():
+  getSpec(): GuitarSpec {
+    return this.spec;
+  }
 }
