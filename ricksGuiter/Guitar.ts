@@ -1,4 +1,5 @@
 import GuitarSpec from "./GuitarSpec";
+import {Builder, Type, Wood} from "./enums";
 
 export default class Guitar {
   constructor(
@@ -21,5 +22,29 @@ export default class Guitar {
 
   getSpec(): GuitarSpec {
     return this.spec;
+  }
+
+  getBuilder(): Builder {
+    return this.spec.getBuilder();
+  }
+
+  getModel(): String {
+    return this.spec.getModel();
+  }
+
+  getType(): Type {
+    return this.spec.getType();
+  }
+
+  getBackWood(): Wood {
+    return this.spec.getBackWood();
+  }
+
+  getTopWood(): Wood {
+    return this.spec.getTopWood();
+  }
+
+  getNumStrings(): number {
+    return this.spec.getNumStrings();
   }
 }

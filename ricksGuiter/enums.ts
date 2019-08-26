@@ -1,12 +1,12 @@
 export enum Builder {
-  FENDER = "Fender",
-  MARTIN = "Martin",
-  GIBSON = "Gibson",
-  COLLINGS = "Collings",
-  OLSON = "Olson",
-  RYAN = "Ryan",
-  PRS = "Prs",
-  ANY = "Any"
+  FENDER = "fender",
+  MARTIN = "martin",
+  GIBSON = "gibson",
+  COLLINGS = "collings",
+  OLSON = "olson",
+  RYAN = "ryan",
+  PRS = "prs",
+  ANY = "any"
 }
 
 export enum Type {
