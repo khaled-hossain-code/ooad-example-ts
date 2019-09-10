@@ -1,7 +1,11 @@
 import InstrumentSpec from "./InstrumentSpec";
 
 export default abstract class Instrument {
-  constructor(private serialNumber: string, private price: number) {}
+  constructor(
+    private serialNumber: string,
+    private price: number,
+    private spec: InstrumentSpec
+  ) {}
 
   getSerialNumber(): string {
     return this.serialNumber;
@@ -15,5 +19,7 @@ export default abstract class Instrument {
     this.price = price;
   }
 
-  abstract getSpec(): InstrumentSpec;
+  getSpec(): InstrumentSpec {
+    return this.spec;
+  }
 }

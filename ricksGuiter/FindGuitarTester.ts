@@ -36,5 +36,5 @@ function initializeInventory(inventory: Inventory) {
     Wood.ALDER,
     Wood.ALDER
   );
-  inventory.addGuitar("V95693", 1499.95, guitarSpec1);
+  inventory.addInstrument("V95693", 1499.95, guitarSpec1);
 }

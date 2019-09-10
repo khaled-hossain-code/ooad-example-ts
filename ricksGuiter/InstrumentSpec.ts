@@ -30,5 +30,42 @@ export default abstract class InstrumentSpec {
     return this.topWood;
   }
 
-  abstract matches(searchSpec: InstrumentSpec): boolean;
+  matches(searchSpec: InstrumentSpec): boolean {
+    if (
+      searchSpec.getBuilder() !== this.getBuilder() &&
+      !_.isEmpty(searchSpec.getBuilder()) &&
+      searchSpec.getBuilder() !== null
+    ) {
+      return false;
+    }
+    if (
+      searchSpec.getModel() !== this.getModel() &&
+      !_.isEmpty(searchSpec.getModel()) &&
+      searchSpec.getModel() !== null
+    ) {
+      return false;
+    }
+    if (
+      searchSpec.getType() !== this.getType() &&
+      !_.isEmpty(searchSpec.getType()) &&
+      searchSpec.getType() !== null
+    ) {
+      return false;
+    }
+    if (
+      searchSpec.getTopWood() !== this.getTopWood() &&
+      !_.isEmpty(searchSpec.getTopWood()) &&
+      searchSpec.getTopWood() !== null
+    ) {
+      return false;
+    }
+    if (
+      searchSpec.getBackWood() !== this.getBackWood() &&
+      !_.isEmpty(searchSpec.getBackWood()) &&
+      searchSpec.getBackWood() !== null
+    ) {
+      return false;
+    }
+    return true;
+  }
 }

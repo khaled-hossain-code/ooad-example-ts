@@ -18,28 +18,17 @@ export default class GuitarSpec extends InstrumentSpec {
     return this.numStrings;
   }
 
-  matches(searchSpec: GuitarSpec): boolean {
-    if (
-      searchSpec.getBuilder() !== this.getBuilder() &&
-      !_.isEmpty(searchSpec.getBuilder()) &&
-      searchSpec.getBuilder() !== null
-    ) {
+  matches(otherSpec: InstrumentSpec): boolean {
+    if (!super.matches(otherSpec)) {
       return false;
     }
-    if (
-      searchSpec.getModel() !== this.getModel() &&
-      !_.isEmpty(searchSpec.getModel()) &&
-      searchSpec.getModel() !== null
-    ) {
+
+    if(!(otherSpec instanceof GuitarSpec)){
       return false;
     }
-    if (
-      searchSpec.getType() !== this.getType() &&
-      !_.isEmpty(searchSpec.getType()) &&
-      searchSpec.getType() !== null
-    ) {
-      return false;
-    }
+
+    const searchSpec: GuitarSpec = <GuitarSpec> otherSpec;
+
     if (
       searchSpec.getNumStrings() !== this.getNumStrings() &&
       !_.isEmpty(searchSpec.getNumStrings()) &&
@@ -47,20 +36,7 @@ export default class GuitarSpec extends InstrumentSpec {
     ) {
       return false;
     }
-    if (
-      searchSpec.getTopWood() !== this.getTopWood() &&
-      !_.isEmpty(searchSpec.getTopWood()) &&
-      searchSpec.getTopWood() !== null
-    ) {
-      return false;
-    }
-    if (
-      searchSpec.getBackWood() !== this.getBackWood() &&
-      !_.isEmpty(searchSpec.getBackWood()) &&
-      searchSpec.getBackWood() !== null
-    ) {
-      return false;
-    }
+
     return true;
   }
 }

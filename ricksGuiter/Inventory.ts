@@ -1,11 +1,12 @@
 import * as _ from "lodash";
 import Guitar from "./Guitar";
 import GuitarSpec from "./GuitarSpec";
+import InstrumentSpec from "./InstrumentSpec";
 
 export default class Inventory {
   guitars: Guitar[] = [];
 
-  addGuitar(serialNumber: string, price: number, spec: GuitarSpec) {
+  addInstrument(serialNumber: string, price: number, spec: InstrumentSpec) {
     const guitar = new Guitar(serialNumber, price, spec);
     this.guitars.push(guitar);
   }
