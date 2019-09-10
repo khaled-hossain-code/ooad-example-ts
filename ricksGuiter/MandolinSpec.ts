@@ -1,24 +1,24 @@
-import { Builder, Type, Wood } from "./enums";
+import { Builder, Type, Wood, Style } from "./enums";
 import * as _ from "lodash";
 import InstrumentSpec from "./InstrumentSpec";
 
-export default class GuitarSpec extends InstrumentSpec {
+export default class MandolinSpec extends InstrumentSpec {
   constructor(
     builder: Builder,
     model: string,
     type: Type,
-    private numStrings: number,
+    private style: Style,
     backWood: Wood,
     topWood: Wood
   ) {
     super(builder, model, type, backWood, topWood);
   }
 
-  getNumStrings(): number {
-    return this.numStrings;
+  getStyle(): Style {
+    return this.style;
   }
 
-  matches(searchSpec: GuitarSpec): boolean {
+  matches(searchSpec: MandolinSpec): boolean {
     if (
       searchSpec.getBuilder() !== this.getBuilder() &&
       !_.isEmpty(searchSpec.getBuilder()) &&
@@ -41,9 +41,9 @@ export default class GuitarSpec extends InstrumentSpec {
       return false;
     }
     if (
-      searchSpec.getNumStrings() !== this.getNumStrings() &&
-      !_.isEmpty(searchSpec.getNumStrings()) &&
-      searchSpec.getNumStrings() !== null
+      searchSpec.getStyle() !== this.getStyle() &&
+      !_.isEmpty(searchSpec.getStyle()) &&
+      searchSpec.getStyle() !== null
     ) {
       return false;
     }

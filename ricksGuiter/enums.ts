@@ -25,3 +25,8 @@ export enum Wood {
   ALDER = "Alder",
   SITKA = "Sitka"
 }
+
+export enum Style {
+  A = "A",
+  F = "F"
+}

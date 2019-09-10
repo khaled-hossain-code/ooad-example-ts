@@ -14,14 +14,9 @@ export default class Inventory {
     return _.find(this.guitars, guitar => guitar.getSerialNumber() === serialNumber);
   }
 
-  search(spec: GuitarSpec): Guitar[] {
+  search(searchSpec: GuitarSpec): Guitar[] {
     return _.filter(this.guitars, (guitar) => {
-      if (spec.getBuilder() !== guitar.getBuilder() && !_.isEmpty(spec.getBuilder()) && spec.getBuilder() !== null) { return false; }
-      if (spec.getModel() !== guitar.getModel() && !_.isEmpty(spec.getModel()) && spec.getModel() !== null) { return false; }
-      if (spec.getType() !== guitar.getType() && !_.isEmpty(spec.getType()) && spec.getType() !== null) { return false; }
-      if (spec.getTopWood() !== guitar.getTopWood() && !_.isEmpty(spec.getTopWood()) && spec.getTopWood() !== null) { return false; }
-      if (spec.getBackWood() !== guitar.getBackWood() && !_.isEmpty(spec.getBackWood()) && spec.getBackWood() !== null) { return false; }
-      return true;
+      return guitar.getSpec().matches(searchSpec);
     });
   }
 }
