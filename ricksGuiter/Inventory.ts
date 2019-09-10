@@ -1,23 +1,35 @@
 import * as _ from "lodash";
 import Guitar from "./Guitar";
+import Mandolin from "./Mandolin";
 import GuitarSpec from "./GuitarSpec";
+import MandolinSpec from "./MandolinSpec";
 import InstrumentSpec from "./InstrumentSpec";
+import Instrument from "./Instrument";
 
 export default class Inventory {
-  guitars: Guitar[] = [];
+  instruments: Instrument[] = [];
 
   addInstrument(serialNumber: string, price: number, spec: InstrumentSpec) {
-    const guitar = new Guitar(serialNumber, price, spec);
-    this.guitars.push(guitar);
+    let instrument: Instrument;
+
+    if(spec instanceof GuitarSpec){
+      instrument = new Guitar(serialNumber, price, <GuitarSpec> spec);
+    }
+
+    if(spec instanceof MandolinSpec){
+      instrument = new Mandolin(serialNumber, price, <MandolinSpec> spec);
+    }
+
+    this.instruments.push(instrument);
   }
 
-  getGuitar(serialNumber: string): Guitar {
-    return _.find(this.guitars, guitar => guitar.getSerialNumber() === serialNumber);
+  getInstrument(serialNumber: string): Instrument {
+    return _.find(this.instruments, instrument => instrument.getSerialNumber() === serialNumber);
   }
 
-  search(searchSpec: GuitarSpec): Guitar[] {
-    return _.filter(this.guitars, (guitar) => {
-      return guitar.getSpec().matches(searchSpec);
+  search(searchSpec: InstrumentSpec): Instrument[] {
+    return _.filter(this.instruments, (instrument) => {
+      return instrument.getSpec().matches(searchSpec);
     });
   }
 }
