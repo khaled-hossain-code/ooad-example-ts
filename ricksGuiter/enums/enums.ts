@@ -30,3 +30,9 @@ export enum Style {
   A = "A",
   F = "F"
 }
+
+export enum InstrumentType {
+  GUITAR = "Guitar",
+  BANJO = "Banjo",
+  MANDOLIN = "Mandolin"
+}

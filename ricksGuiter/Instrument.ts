@@ -1,9 +1,11 @@
 import InstrumentSpec from "./InstrumentSpec";
+import { InstrumentType } from "./enums/enums";
 
-export default abstract class Instrument {
+export default class Instrument {
   constructor(
     private serialNumber: string,
     private price: number,
+    private type: InstrumentType,
     private spec: InstrumentSpec
   ) {}
 
